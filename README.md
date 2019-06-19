@@ -1,4 +1,4 @@
 # unison-lobby
 
 Screenshots:
-![alt text](screenshots/ODuaQhMXXZ.png "screenshot 1")
+![alt text](screenshots/preview.png "screenshot 1")
