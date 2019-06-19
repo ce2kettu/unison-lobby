@@ -49,7 +49,7 @@ local ANIMATION_TRANSFORM_TIMING = 185
 local ANIMATION_FADE_TIMING = 585
 
 -- TODO: getElementsByType("room")
-local rooms = { { name = "Solo Tournament", locked = true, icon = "", description = "My name is airplaNe and I'm autistic" }, { name = "Training", locked = false, icon = "", description = "Start training and prepare yourself for the tournament!" }, { name = "Fun Deathmatch", locked = false, icon = "", description = "yes" }, { name = "This text will clip whether you liked it or not", locked = false, icon = "", description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna condimentum mattis pellentesque id nibh tortor id aliquet. " }, { name = "My mom???", locked = false, icon = "", description = "I find your mom hot" }, { name = "test", locked = false, icon = "", description = "My name is airplaNe and I'm autisticccccccccccccccccccccccccccccccccccccccccccc as fuck" } }
+local rooms = { { name = "Solo Tournament", locked = true, icon = "", description = "Masculine media" }, { name = "Training", locked = false, icon = "", description = "Start training and prepare yourself for upcoming!" }, { name = "Fun Deathmatch", locked = false, icon = "", description = "ah yes" }, { name = "This text will clip whether you liked it or not", locked = false, icon = "", description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna condimentum mattis pellentesque id nibh tortor id aliquet. " }, { name = "It's a room", locked = false, icon = "", description = "I find it clear" }, { name = "test", locked = false, icon = "", description = "Wanted, a wife. She must possess all the attributes of a lady, and be able to undertake general domestic duties. She must be young not more than 12 years of age and good-looking." } }
 
 setPlayerHudComponentVisible("all", false)
 setTime(21, 40)
@@ -60,15 +60,15 @@ setCameraMatrix(unpack(cameraPosition))
 showCursor(true)
 
 function main()
-    FONT_ICON_REGULAR = dxCreateFont(":uni/files/fonts/font_icon_regular.otf", FONT_SIZE_ICONS, false, "cleartype_natural")
-	FONT_ICON_SMALL = dxCreateFont(":uni/files/fonts/font_icon_regular.otf", FONT_SIZE_SMALL, false, "cleartype_natural")
-	FONT_ICON_LARGE = dxCreateFont(":uni/files/fonts/font_icon_light.otf", FONT_SIZE_LARGE, false, "cleartype_natural")
-    FONT_SEMIBOLD = dxCreateFont(":uni/files/fonts/font_opensans_semibold.ttf", FONT_SIZE_DEFAULT, false, "cleartype_natural")
-    FONT_SMALL = dxCreateFont(":uni/files/fonts/font_opensans_regular.ttf", FONT_SIZE_SMALLISH, false, "cleartype_natural")
-	FONT_REGULAR = dxCreateFont(":uni/files/fonts/font_opensans_regular.ttf", FONT_SIZE_SMALL, false, "cleartype_natural")
-	FONT_BOLD = dxCreateFont(":uni/files/fonts/font_opensans_bold.ttf", FONT_SIZE_DEFAULT, false, "cleartype_natural")
+    FONT_ICON_REGULAR = dxCreateFont("files/fonts/font_icon_regular.otf", FONT_SIZE_ICONS, false, "cleartype_natural")
+	FONT_ICON_SMALL = dxCreateFont("files/fonts/font_icon_regular.otf", FONT_SIZE_SMALL, false, "cleartype_natural")
+	FONT_ICON_LARGE = dxCreateFont("files/fonts/font_icon_light.otf", FONT_SIZE_LARGE, false, "cleartype_natural")
+    FONT_SEMIBOLD = dxCreateFont("files/fonts/font_opensans_semibold.ttf", FONT_SIZE_DEFAULT, false, "cleartype_natural")
+    FONT_SMALL = dxCreateFont("files/fonts/font_opensans_regular.ttf", FONT_SIZE_SMALLISH, false, "cleartype_natural")
+	FONT_REGULAR = dxCreateFont("files/fonts/font_opensans_regular.ttf", FONT_SIZE_SMALL, false, "cleartype_natural")
+	FONT_BOLD = dxCreateFont("files/fonts/font_opensans_bold.ttf", FONT_SIZE_DEFAULT, false, "cleartype_natural")
 
-	g_uBackgroundMusic = playSound(":uni/files/sounds/lobby-music.mp3", true)
+	g_uBackgroundMusic = playSound("files/sounds/lobby-music.mp3", true)
 	setSoundVolume(g_uBackgroundMusic, 0.5)
 
 	addEventHandler("onClientRender", root, render)
@@ -87,8 +87,8 @@ end
 addEventHandler("onClientResourceStop", resourceRoot, destroy)
 
 function render()
-	dxSetBlendMode("modulate_add")
-
+    dxSetBlendMode("modulate_add")
+    
 	local iCursorX, iCursorY 	= getCursorPosition()
 	local iScreenX, iScreenY 	= getScreenFromWorldPosition(cameraPosition[4], cameraPosition[5], cameraPosition[6])
 	local iParallexFactor 		= 30
@@ -111,7 +111,7 @@ function render()
 	local logoWidth = math.floor(195 * relY)
     local logoHeight = math.round(49 / 195 * logoWidth)
 
-    dxDrawImage(math.floor(screenX / 2 - logoWidth / 2), LOGO_MARGIN_TOP, logoWidth, logoHeight, ":uni/files/images/logo.png", 0, 0, 0, COLOR_WHITE, false)
+    dxDrawImage(math.floor(screenX / 2 - logoWidth / 2), LOGO_MARGIN_TOP, logoWidth, logoHeight, "files/images/logo.png", 0, 0, 0, COLOR_WHITE, false)
 
     -- website text and icon
     local websiteTextWidth = dxGetTextWidth("visit unisonchampionships.com", 1, FONT_SEMIBOLD)
@@ -120,7 +120,7 @@ function render()
     dxDrawText("", screenX / 2 - websiteTextWidth / 2 - websiteIconWidth / 2 - ICON_MARGIN_LARGE / 2, screenY - WEBSITE_MARGIN_BOTTOM + 3 * relY, screenX, screenY, UNISON_PINK, 1, FONT_ICON_REGULAR)
     dxDrawText("visit unisonchampionships.com", screenX / 2 - websiteTextWidth / 2 + websiteIconWidth / 2 + ICON_MARGIN_LARGE / 2, screenY - WEBSITE_MARGIN_BOTTOM, screenX, screenY, COLOR_WHITE, 1, FONT_SEMIBOLD)
 
-    local temp = Element.getAllByType("room")
+    --[[ local temp = Element.getAllByType("room")
     rooms = {}
 
     for _, uRoom in pairs(temp) do
@@ -131,7 +131,7 @@ function render()
             icon = uRoom:getData("icon"),
             locked = false
         })
-    end
+    end ]]
 
     paginationHandler()
     structureRooms()

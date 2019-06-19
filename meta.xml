@@ -1,0 +1,26 @@
+<meta>
+	<info name="Lobby" author="ce2" />
+	<min_mta_version server="1.5.5" client="1.5.5" />
+
+	<!-- General settings  -->
+	<oop>true</oop>
+
+	<!-- Client -->
+	<script type="client" src="client.lua" />
+
+	<!-- Images -->
+	<file src="files/images/bg.jpg" />
+	<file src="files/images/pagination.png" />
+	<file src="files/images/logo.png" />
+
+	<!-- Fonts -->
+	<file src="files/fonts/font_icon_light.otf" />
+	<file src="files/fonts/font_icon_regular.otf" />
+	<file src="files/fonts/font_icon_solid.otf" />
+	<file src="files/fonts/font_opensans_bold.ttf" />
+	<file src="files/fonts/font_opensans_regular.ttf" />
+	<file src="files/fonts/font_opensans_semibold.ttf" />
+
+	<!-- Sounds -->
+	<file src="files/sounds/lobby-music.mp3" />
+</meta>
